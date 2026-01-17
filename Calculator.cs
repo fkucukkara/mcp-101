@@ -3,7 +3,13 @@ namespace MCP101;
 /// <summary>
 /// A simple calculator class that demonstrates basic arithmetic operations.
 /// </summary>
-public class Calculator
+/// <example>
+/// <code>
+/// var calculator = new Calculator();
+/// double result = calculator.Add(5, 3); // Returns 8
+/// </code>
+/// </example>
+public sealed class Calculator
 {
     /// <summary>
     /// Adds two numbers together.
@@ -11,10 +17,13 @@ public class Calculator
     /// <param name="a">The first number.</param>
     /// <param name="b">The second number.</param>
     /// <returns>The sum of the two numbers.</returns>
-    public double Add(double a, double b)
-    {
-        return a + b;
-    }
+    /// <example>
+    /// <code>
+    /// var calculator = new Calculator();
+    /// double result = calculator.Add(10.5, 5.3); // Returns 15.8
+    /// </code>
+    /// </example>
+    public double Add(double a, double b) => a + b;
 
     /// <summary>
     /// Subtracts the second number from the first number.
@@ -22,8 +31,48 @@ public class Calculator
     /// <param name="a">The number to subtract from.</param>
     /// <param name="b">The number to subtract.</param>
     /// <returns>The difference between the two numbers.</returns>
-    public double Subtract(double a, double b)
+    /// <example>
+    /// <code>
+    /// var calculator = new Calculator();
+    /// double result = calculator.Subtract(10, 3); // Returns 7
+    /// </code>
+    /// </example>
+    public double Subtract(double a, double b) => a - b;
+
+    /// <summary>
+    /// Multiplies two numbers together.
+    /// </summary>
+    /// <param name="a">The first number.</param>
+    /// <param name="b">The second number.</param>
+    /// <returns>The product of the two numbers.</returns>
+    /// <example>
+    /// <code>
+    /// var calculator = new Calculator();
+    /// double result = calculator.Multiply(4, 5); // Returns 20
+    /// </code>
+    /// </example>
+    public double Multiply(double a, double b) => a * b;
+
+    /// <summary>
+    /// Divides the first number by the second number.
+    /// </summary>
+    /// <param name="a">The dividend.</param>
+    /// <param name="b">The divisor.</param>
+    /// <returns>The quotient of the division.</returns>
+    /// <exception cref="DivideByZeroException">Thrown when the divisor is zero.</exception>
+    /// <example>
+    /// <code>
+    /// var calculator = new Calculator();
+    /// double result = calculator.Divide(20, 4); // Returns 5
+    /// </code>
+    /// </example>
+    public double Divide(double a, double b)
     {
-        return a - b;
+        if (b == 0)
+        {
+            throw new DivideByZeroException("Cannot divide by zero.");
+        }
+
+        return a / b;
     }
 }

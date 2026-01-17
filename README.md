@@ -1,6 +1,6 @@
 # Model Context Protocol (MCP) Server Example
 
-This repository demonstrates how to effectively use the Model Context Protocol (MCP) with GitHub Copilot in a C# project. It showcases various development scenarios and how MCP enhances the development workflow.
+This repository demonstrates how to effectively use the Model Context Protocol (MCP) with GitHub Copilot in a C# .NET 10 project. It showcases various development scenarios and how MCP enhances the development workflow.
 
 ## What is MCP?
 
@@ -11,7 +11,27 @@ Model Context Protocol (MCP) enables GitHub Copilot to understand and interact w
 - Managing GitHub issues and pull requests
 - Handling build processes
 
+## Project Details
+
+- **Framework**: .NET 10
+- **Language**: C# 14
+- **Features**: 
+  - Simple calculator with four basic operations
+  - Comprehensive XML documentation
+  - Modern C# patterns (expression-bodied members, file-scoped types, sealed classes)
+  - Proper error handling and validation
+
 ## Quick Start
+
+1. Ensure you have .NET 10 SDK installed
+2. Clone the repository
+3. Run the application:
+
+```bash
+dotnet run
+```
+
+## MCP Integration
 
 1. Install the VS Code MCP extension
 2. Create `.vscode/mcp.json` in your project:
@@ -111,11 +131,27 @@ Copilot: "I'll:
 ## Project Structure
 
 ```plaintext
-├── Calculator.cs      # Core calculator implementation
-├── Program.cs        # Console application entry point
+├── Calculator.cs         # Core calculator implementation with four operations
+├── Program.cs            # Console application entry point
+├── MCP101.csproj         # Project file targeting .NET 10
+├── global.json           # SDK version specification
+├── .editorconfig         # Code style and formatting rules
+├── .gitignore            # Git ignore patterns
 └── .vscode/
-    └── mcp.json     # MCP configuration
+    └── mcp.json          # MCP configuration
 ```
+
+## Modern C# Features Used
+
+This project demonstrates modern C# 14 and .NET 10 best practices:
+
+- **File-scoped types**: Using `file sealed class` for Program
+- **Expression-bodied members**: Concise method implementations
+- **Target-typed new expressions**: `Calculator calculator = new();`
+- **Sealed classes**: Preventing unnecessary inheritance
+- **Nullable reference types**: Enabled for better null safety
+- **Comprehensive XML documentation**: Including `<example>` and `<code>` blocks
+- **Modern error handling**: DivideByZeroException with clear messages
 
 ## Best Practices
 
@@ -124,26 +160,38 @@ Copilot: "I'll:
    - Use clear descriptions and acceptance criteria
 
 2. **Error Handling**
-   - Validate inputs
+   - Validate inputs before processing
    - Use appropriate exception types
-   - Provide clear error messages
+   - Provide clear, actionable error messages
+   - Handle division by zero explicitly
 
 3. **Documentation**
-   - Keep README updated
-   - Use XML documentation for public APIs
-   - Include usage examples
+   - Keep README updated with current framework version
+   - Use XML documentation for all public APIs
+   - Include usage examples in documentation
+   - Add `<example>` blocks with sample code
 
-4. **Version Control**
+4. **Code Quality**
+   - Enable `TreatWarningsAsErrors` for strict compilation
+   - Use `.editorconfig` for consistent code style
+   - Seal classes when inheritance isn't needed
+   - Use expression-bodied members for simple methods
+
+5. **Version Control**
    - Use meaningful commit messages
    - Create feature branches
    - Review code before merging
+   - Keep `.gitignore` up to date
 
 ## Resources
 
+- [.NET 10 Documentation](https://learn.microsoft.com/en-us/dotnet/)
+- [C# 14 What's New](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-14)
 - [MCP Documentation](https://github.com/microsoft/vscode-mcp)
 - [GitHub Copilot](https://github.com/features/copilot)
 - [C# Coding Conventions](https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions)
 - [C# Exception Handling Best Practices](https://docs.microsoft.com/en-us/dotnet/standard/exceptions/best-practices-for-exceptions)
+- [EditorConfig Documentation](https://editorconfig.org/)
 
 ## 📄 License
 

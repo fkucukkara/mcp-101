@@ -1,18 +1,23 @@
-﻿  using System;
+﻿namespace MCP101;
 
-namespace MCP101;
-
-class Program
+/// <summary>
+/// Main program entry point demonstrating the Calculator functionality.
+/// </summary>
+file sealed class Program
 {
-    static void Main()
+    /// <summary>
+    /// Entry point for the calculator demonstration application.
+    /// Prompts the user for two numbers and performs arithmetic operations.
+    /// </summary>
+    private static void Main()
     {
         try
         {
-            var calculator = new Calculator();
-            
+            Calculator calculator = new();
+
             Console.WriteLine("Simple Calculator Demo");
             Console.WriteLine("--------------------");
-            
+
             Console.Write("Enter first number: ");
             if (!double.TryParse(Console.ReadLine(), out double num1))
             {
@@ -25,15 +30,23 @@ class Program
                 throw new ArgumentException("Invalid second number");
             }
 
-            // Demo addition
             double sum = calculator.Add(num1, num2);
             Console.WriteLine($"{num1} + {num2} = {sum}");
-            
-            // Demo subtraction
+
             double difference = calculator.Subtract(num1, num2);
             Console.WriteLine($"{num1} - {num2} = {difference}");
+
+            double product = calculator.Multiply(num1, num2);
+            Console.WriteLine($"{num1} * {num2} = {product}");
+
+            double quotient = calculator.Divide(num1, num2);
+            Console.WriteLine($"{num1} / {num2} = {quotient}");
         }
         catch (ArgumentException ex)
+        {
+            Console.WriteLine($"Error: {ex.Message}");
+        }
+        catch (DivideByZeroException ex)
         {
             Console.WriteLine($"Error: {ex.Message}");
         }
